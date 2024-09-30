@@ -1,3 +1,5 @@
+/* index.css */
+@import "C:/uydu_proje/node_modules/leaflet/dist/leaflet.css";
 
 
 .filtreler {
@@ -7,7 +9,6 @@
   background-color: lightblue;
   padding: 20px;
   text-align: center;
-
   margin: 10px;
   height: 60vh; 
 }
@@ -20,7 +21,6 @@
   background-color: rgb(41, 102, 52);
   padding: 20px;
   text-align: center;
-
   margin: 10px;
   height: 60vh; 
 }
