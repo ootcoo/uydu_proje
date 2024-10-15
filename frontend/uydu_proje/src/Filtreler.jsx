@@ -6,12 +6,10 @@ import axios from 'axios';
 
 
 
-function Filtreler({ marker, setMarker, search, setSearch }) {
+function Filtreler({ marker, setMarker, search, setSearch,baslangic,bitis,setBaslangic,setBitis, onFilterChange }) {  
   
-  const [baslangic, setBaslangic] = useState('');
-    const [bitis, setBitis] = useState('');
 
-
+ 
   const handleBaslangicChange = (e) => {
     setBaslangic(e.target.value);
   
@@ -36,6 +34,11 @@ function Filtreler({ marker, setMarker, search, setSearch }) {
     }
   };
   
+  const handleChange = () => {
+    onFilterChange({ baslangic, bitis }); // filtreleri güncelle
+  };
+
+
   return (
     <div className="filtreler" style={{ flex: 2 }}>
       <h1>Filtreler</h1>
@@ -63,7 +66,7 @@ function Filtreler({ marker, setMarker, search, setSearch }) {
       <br></br>
       <input type="text" value={search} placeholder="Arama yapın" onChange={(e) => { setSearch(e.target.value) }} style={{scale: '120%'}} />
     <button className="buttonum" onClick={HandleSearch}>Ara</button>
-
+    
     </div>
 
   )
