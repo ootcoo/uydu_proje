@@ -1,0 +1,83 @@
+/* index.css */
+@import "C:/uydu_proje/frontend/uydu_proje/node_modules/leaflet/dist/leaflet.css";
+
+body{
+  background-color: rgba(28, 74, 13, 0.248);
+}
+
+.filtreler {
+  border: 3px solid rgb(63, 105, 112) ;
+  border-radius: 10px;
+  box-shadow: 5px 15px 20px rgb(57, 72, 84);
+  background-color: lightblue;
+  padding: 20px;
+  text-align: center;
+  margin: 10px;
+  height: 60vh; 
+}
+
+
+.harita {
+  border: 3px solid rgb(45, 66, 47);
+  border-radius: 10px;
+  box-shadow: 5px 15px 20px rgb(57, 91, 60);
+  background-color: rgb(41, 102, 52);
+  padding: 20px;
+  text-align: center;
+  margin: 10px;
+  height: 60vh; 
+}
+.header{
+  text-align:center;
+
+}
+.buttonum{
+  border: 3px solid rgb(228, 100, 106);
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px rgb(83, 34, 41);
+  font-size: xx-large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 500;
+  margin:50px
+}
+
+
+.eski_goruntu {
+  border: 3px solid rgba(112, 63, 101, 0.841) ;
+  border-radius: 10px;
+  box-shadow: 5px 15px 20px rgb(84, 57, 84);
+  background-color: rgb(227, 23, 176);
+  padding: 20px;
+  text-align: center;
+
+  margin: 50px;
+  height: 60vh; 
+ 
+}
+
+
+.yeni_goruntu {
+  border: 3px solid rgba(91, 59, 88, 0.619);
+  border-radius: 10px;
+  box-shadow: 5px 15px 20px rgb(91, 57, 85);
+  background-color: rgb(226, 110, 244);
+  padding: 20px;
+  text-align: center;
+
+  margin: 50px;
+  height: 60vh; 
+
+}
+
+.sonuclar{
+  border: 3px solid rgba(64, 59, 91, 0.619);
+  border-radius: 10px;
+  box-shadow: 5px 15px 20px rgb(65, 57, 91);
+  background-color: rgb(110, 135, 244);
+  padding: 20px;
+  text-align: center;
+
+  margin: 50px;
+  height: 60vh; 
+}
+
