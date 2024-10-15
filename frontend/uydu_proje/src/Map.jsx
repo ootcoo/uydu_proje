@@ -51,7 +51,7 @@ function Map({ marker, setMarker, search, setSearch,baslangic,bitis,setSatellite
         longitude:lng,
         startTime:baslangic,
         endTime:bitis,
-      });
+      });   
       setSatelliteImages({start:response.data.baslangicImageUrl, end:response.data.bitisImageUrl});
 
     }
