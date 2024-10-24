@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("uydu_proje")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab9d4d6d3ab008ce6c753ddc6a3b1ac9fa44992d")]
 [assembly: System.Reflection.AssemblyProductAttribute("uydu_proje")]
 [assembly: System.Reflection.AssemblyTitleAttribute("uydu_proje")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
