@@ -1,27 +1,55 @@
+using Microsoft.AspNetCore.Mvc;
+using uydu_proje.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+
+
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.AddHttpClient();
+
+builder.Services.AddScoped<UyduGoruntuleriService>();
+builder.Services.AddHttpClient<UyduGoruntuleriService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+public void ConfigureServices(IServiceCollection services)
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    services.AddControllers();
+    services.AddCors(options =>
+    {
+        options.AddPolicy("AllowOrigin",
+            builder => builder.WithOrigins("http://localhost:5173") // React uygulamanýzýn URL'si
+                              .AllowAnyHeader()
+                              .AllowAnyMethod());
+    });
 }
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
 
-app.UseRouting();
+    app.UseHttpsRedirection();
 
-app.UseAuthorization();
+    app.UseRouting();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    app.UseCors("AllowOrigin");
+
+    app.UseAuthorization();
+
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapControllers();
+    });
+}
 
 app.Run();
+
+
+

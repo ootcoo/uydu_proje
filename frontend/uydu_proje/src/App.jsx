@@ -13,6 +13,17 @@ import fetchSatelliteImages from './Map.jsx'
 
 
 
+// // createRoot kullanarak React uygulamasını render et
+// const root = ReactDOM.createRoot( document.getElementById('root'));
+// root.render(
+//   <React.StrictMode>
+//     <App/>
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
+
+
+
 function App() {
   const [marker, setMarker] = useState(null);
   const [search, setSearch] = useState("");
@@ -30,6 +41,7 @@ function App() {
         fetchSatelliteImages(coordinates.lat, coordinates.lng);
     }
 };
+
   return (
 
     <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -40,7 +52,7 @@ function App() {
         <Map marker={marker} setMarker={setMarker} search={search} setSearch={setSearch} coordinates={coordinates} setCoordinates={setCoordinates} setSatelliteImages={setSatelliteImages} />
       </div>
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <button className='buttonum' onClick={handleChange} >Göster</button>
+        <button className='buttonum' onClick={handleFilterChange} >Göster</button>
       </div>
       <div style={{ display: 'flex', flex: 1, flexDirection: 'row' }} >
 

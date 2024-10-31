@@ -2,9 +2,8 @@ import {React, useState} from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents, useMap } from 'react-leaflet';
 import 'C:/uydu_proje/frontend/uydu_proje/node_modules/leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import { useEffect } from 'react';
 import axios from 'axios';
-import Filtreler from './Filtreler';
+
 
 
 delete L.Icon.Default.prototype._getIconUrl;
@@ -24,8 +23,8 @@ function Map({ marker, setMarker, search, setSearch,baslangic,bitis,setSatellite
       click(e) {
         const { lat, lng } = e.latlng;
         setCoordinates({ lat, lng });
-        fetchSatelliteImages(lat, lng);
         setMarker({ lat, lng });
+        
       },
     });
 
@@ -45,20 +44,22 @@ function Map({ marker, setMarker, search, setSearch,baslangic,bitis,setSatellite
   }
   const fetchSatelliteImages= async (lat,lng)=>{
 
-    try{
-      const response= await axios.post('http://localhost:5000/satellite_images', {
-        latitude:lat,
-        longitude:lng,
-        startTime:baslangic,
-        endTime:bitis,
-      });   
+   
+      try {
+        const response = await axios.post('http://localhost:5135/api/uydugoruntuleri/download', {
+          latitude: lat,
+          longitude: lng,
+          startDate: baslangic,
+          endDate: bitis,
+        });
+        console.log("API yanıtı",response.data); 
       setSatelliteImages({start:response.data.baslangicImageUrl, end:response.data.bitisImageUrl});
 
     }
     catch(error){
       console.error("Error fetching satellite images", error);
     };
-  }
+    }
   
 
  

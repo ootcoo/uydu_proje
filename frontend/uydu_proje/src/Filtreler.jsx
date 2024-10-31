@@ -6,6 +6,7 @@ import axios from 'axios';
 
 
 
+
 function Filtreler({ marker, setMarker, search, setSearch,baslangic,bitis,setBaslangic,setBitis, onFilterChange }) {  
   
 
@@ -18,7 +19,7 @@ function Filtreler({ marker, setMarker, search, setSearch,baslangic,bitis,setBas
    
     setBitis(e.target.value);
   };
-  const HandleSearch = async () => {
+  const handleSearch = async () => {
     try {
       const response = await axios.get(`https://nominatim.openstreetmap.org/search?format=json&q=${search}`);
       if (response.data.length > 0) {
@@ -36,6 +37,7 @@ function Filtreler({ marker, setMarker, search, setSearch,baslangic,bitis,setBas
   
   const handleChange = () => {
     onFilterChange({ baslangic, bitis }); // filtreleri güncelle
+   
   };
 
 
@@ -65,7 +67,7 @@ function Filtreler({ marker, setMarker, search, setSearch,baslangic,bitis,setBas
 
       <br></br>
       <input type="text" value={search} placeholder="Arama yapın" onChange={(e) => { setSearch(e.target.value) }} style={{scale: '120%'}} />
-    <button className="buttonum" onClick={HandleSearch}>Ara</button>
+    <button className="buttonum" onClick={handleSearch}>Ara</button>
     
     </div>
 
